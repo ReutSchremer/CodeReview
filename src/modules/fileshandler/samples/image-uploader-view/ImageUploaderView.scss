@@ -1,0 +1,26 @@
+.image-uploader-sample {
+
+  .image-input-samples {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-input-sample {
+    border: 3px black solid;
+    width: 30%;
+    margin: 2em;
+    margin-top: 1em;
+  }
+
+  .uploaded-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .figure-container img {
+    height: 15%;
+    margin: 2em;
+    margin-top: 1em;
+  }
+}

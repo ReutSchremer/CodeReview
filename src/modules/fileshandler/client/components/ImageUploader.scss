@@ -1,0 +1,149 @@
+.image-uploader-container {
+
+  .basic-theme,
+  .circle-theme, .default-theme {
+    margin: auto;
+    width: fit-content;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  .default-theme {
+    position: relative;
+
+    .default-theme-image {
+      width: 10em;
+      height: 10em;
+    }
+
+    .remove-icon img {
+      right: 0em;
+    }
+
+    .error-icon img {
+      left: 0em;
+    }
+  }
+
+  .chosen-image-parent {
+    position: relative;
+  }
+
+  .chosen-img,
+  .chosen-img-preview {
+    width: 10em;
+    height: 10em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Hides the "load file" button
+  input[type="file"] {
+    position: absolute;
+    -webkit-appearance: none;
+    width: 0;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0;
+    right: 0;
+    visibility: hidden;
+  }
+
+  .circle-theme {
+    .chosen-img {
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px 3px rgb(189, 189, 189);
+    }
+
+    .remove-icon img {
+      right: 0em;
+    }
+
+    .error-icon img {
+      left: 0em;
+    }
+
+    .chosen-img-preview {
+      background-color: #e5e5e5;
+    }
+
+    .label {
+      height: 4em;
+      width: 9.5em;
+      background-color: white;
+      color: black;
+      border-radius: 0px 0px 100px 100px;
+      position: absolute;
+      bottom: 1em;
+      opacity: 0.5;
+      padding-top: 0.5em;
+      text-align: center;
+      z-index: 1;
+      left: 0.25em;
+    }
+  }
+
+  .preview-widget {
+    .dark-background {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-color: black;
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    .image-popup {
+      position: fixed;
+      height: 40%;
+      width: 40vh;
+      top: 30%;
+      left: calc(50vw - 20vh);
+      background-color: white;
+      z-index: 3;
+    }
+
+    .chosen-img-preview {
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
+
+    .tool-bar-dark-background {
+      position: absolute;
+      width: 100%;
+      height: 20%;
+      bottom: 0;
+      background-color: gray;
+      opacity: 0.5;
+    }
+
+    .tool-bar {
+      position: absolute;
+      width: 100%;
+      height: 20%;
+      bottom: 0;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .tool-bar-label {
+      margin: 0;
+      width: fit-content;
+      height: 80%;
+    }
+
+    .bin {
+      height: 80%;
+    }
+
+    .edit {
+      height: 100%;
+    }
+  }
+}

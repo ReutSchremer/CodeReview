@@ -1,0 +1,73 @@
+version: "3.4"
+
+x-common-variables: &common-variables
+  MYSQL_USER: myuser
+  NODE_ENV: production
+  DEBUG: loopback:connector:mysql
+  MYSQL_PASSWORD: z10mz10m
+  MYSQL_DATABASE: newproj
+  REACT_APP_SERVER_PORT: 8080
+#jenkins pw:/bitnami/jenkins/jenkins_home/secrets 
+##jenkins default un/pw: user/bitnami
+#JENKINS_USERNAME: Jenkins admin username. Default: user
+#JENKINS_PASSWORD: Jenkins admin password. Default: bitnami
+services:
+  jenkins:
+      #image: 'bitnami/jenkins:2'
+      build: ./jenkins
+#        dockerfile: ./jenkins/Dockerfile
+#        context: ./
+      ports:
+        - '8082:8080' #right side is what available to Docker's network!
+        - '50000:50000'
+      volumes:
+        - jenkins_data:/bitnami
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /home/carmel/www/dev/pumba:/home/carmel/www/dev/pumba
+      environment:
+        JENKINS_USERNAME: carmel
+        JENKINS_PASSWORD: xpxMbmF9WvB1g
+     
+  mysql:
+    image: mysql:5.7
+    environment:
+      <<: *common-variables
+      MYSQL_HOST: localhost
+      MYSQL_ROOT_PASSWORD: z10mz10m
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    restart: unless-stopped
+    volumes:
+      - ./dumps:/docker-entrypoint-initdb.d
+    #command:
+    #  - /docker-entrypoint-initdb.d/./zinit.sh
+  server:
+    build: ./
+    depends_on:
+      - mysql
+    expose:
+      - 8081
+    environment:
+      <<: *common-variables
+      MYSQL_HOST_IP: mysql
+    ports:
+      - 8081:8081
+    volumes:
+      - ./:/app
+    links:
+      - mysql
+    command: node .
+  webserver:
+      image: nginx:mainline-alpine
+      restart: unless-stopped
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - ./nginx-conf:/etc/nginx/conf.d
+        - ./nginx-conf/certs:/etc/nginx/certs
+volumes:
+  jenkins_data:
+    driver: local

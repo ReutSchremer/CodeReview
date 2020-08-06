@@ -1,0 +1,39 @@
+.create-game-sample {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .form {
+    border: 3px solid black;
+    width: 50%;
+    padding: 2em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+    .field {
+      width: 100%;
+      height: 40%;
+
+      label {
+        text-align: left;
+        display: block;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      textarea {
+        width: 100%;
+        height: 70%;
+      }
+    }
+
+    .col {
+      margin: 1em;
+    }
+  }
+}

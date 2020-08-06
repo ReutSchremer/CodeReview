@@ -1,0 +1,56 @@
+{
+    "name": "Stop",
+    "pathLink": "Stop",
+    "isPublic": false,
+    "mixins": {
+    },
+    "excludeFields": [
+        "id",
+        "password",
+        "owner",
+        "created"
+    ],
+    "properties": {
+        "id": {
+            "type": "Number",
+            "required": false,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "id": 1,
+            "mysql": {
+                "columnName": "id",
+                "dataType": "int",
+                "dataLength": null,
+                "dataPrecision": 10,
+                "dataScale": 0,
+                "nullable": "N"
+            }
+        },
+        "password": "string",
+        "owner": "number",
+        "created": "date"
+    },
+    "validations": [],
+    "options": {
+        "mysql": {
+            "table": "stop"
+        }
+    },
+    "relations": {
+        "user": {
+            "type": "belongsTo",
+            "model": "CustomUser",
+            "foreignKey": "owner"
+        }
+    },
+    "acls": [
+        {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY",
+            "property": "*"
+        }
+    ],
+    "methods": {}
+}

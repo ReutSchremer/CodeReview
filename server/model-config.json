@@ -2,16 +2,6 @@
   "_meta": {
     "modules": [
       {
-        "name": "fileshandler",
-        "path": "../src/modules/fileshandler",
-        "routes": "server/routes",
-        "mixins": "server/mixins",
-        "models": "server/models",
-        "github": "https://github.com/carmel-6000/files-handler",
-        "fetch-version": "latest",
-        "current-version": "1.0.0"
-      },
-      {
         "name": "dashboard",
         "path": "../src/modules/dashboard",
         "github": "https://github.com/carmel-6000/newdashboard",
@@ -58,15 +48,13 @@
       "../src/modules/auth",
       "../common/models",
       "./models",
-      "../src/modules/fileshandler/server/models",
       "../src/modules/auth/server/models"
     ],
     "mixins": [
       "loopback/common/mixins",
       "loopback/server/mixins",
       "../common/mixins",
-      "./mixins",
-      "../src/modules/fileshandler/server/mixins"
+      "./mixins"
     ]
   },
   "User": {
@@ -86,34 +74,6 @@
   "Email": {
     "dataSource": "myEmailDataSource"
   },
-  "Games": {
-    "dataSource": "msql",
-    "public": true
-  },
-  "GamesImages": {
-    "dataSource": "msql",
-    "public": true
-  },
-  "Images": {
-    "dataSource": "msql",
-    "public": true
-  },
-  "Files": {
-    "dataSource": "msql",
-    "public": true
-  },
-  "BaseFiles": {
-    "public": false,
-    "dataSource": "msql"
-  },
-  "BaseImages": {
-    "public": false,
-    "dataSource": "msql"
-  },
-  "RecordsPermissions": {
-    "public": true,
-    "dataSource": "msql"
-  },
   "ACL": {
     "public": false,
     "dataSource": "msql"
@@ -125,11 +85,11 @@
     "public": false,
     "dataSource": "msql"
   },
-  "BaseAudios": {
+  "AccessLogger": {
     "public": false,
     "dataSource": "msql"
   },
-  "BaseVideos": {
+  "Stop": {
     "public": false,
     "dataSource": "msql"
   }

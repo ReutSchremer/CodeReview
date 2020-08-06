@@ -1,0 +1,44 @@
+.loginPage{
+    text-align:center;
+    background-image: url("https://66.media.tumblr.com/0425c49c3a7408a1b29dace4b04f2f79/tumblr_inline_n2590137jN1qhwjx8.gif");
+
+}
+
+.loginBox{
+    display:inline-block;
+    width:50%;
+    border:1px solid #8d8d8d;
+    border-radius:5px;
+    margin-top:14%;
+    text-align:center;
+    padding:5% 10%;
+    background-color: whitesmoke;
+    margin-bottom: 20%;
+
+}
+.form-control > .msg-error {
+    font-size: 2.5vh;
+  }
+form>.frow{
+    margin-top:30px;
+}
+
+button{display:inline-block;
+    
+}
+input{display:inline-block;
+    padding:4px;
+    border-bottom:1px solid grey;
+    border-top:0;
+    border-right:0;
+    border-left:0;
+    width:80%;
+    font-size:1.2em;
+
+}
+
+.validationError{
+    color:red;
+    opacity: 0.65;
+    font-size: 17px;
+}

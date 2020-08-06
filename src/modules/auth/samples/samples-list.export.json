@@ -1,0 +1,22 @@
+[
+    {
+        "filePath": "/PasswordInputView.js",
+        "componentName": "PasswordInputView",
+        "route": "password-input",
+        "title":"password Input and verify"
+
+    },
+    {
+        "filePath": "/LoginAsView.js",
+        "componentName": "LoginAsView",
+        "route": "login-as",
+        "title": "Login as another user"
+    },
+ {
+        "filePath": "/Login.jsx",
+        "componentName": "Login",
+        "route": "login",
+        "title": "(Login, reset password, registration (not ready yet)"
+    }
+    
+]

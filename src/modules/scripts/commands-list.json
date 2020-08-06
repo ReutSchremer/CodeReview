@@ -1,0 +1,58 @@
+[
+    {
+        "name": "help",
+        "brief": "Configure package.json scripts, and give a short breif for each one.",
+        "src": "src/modules/scripts/./help.sh"
+    },
+    {
+        "name": "install-modules",
+        "run": "npm run install-modules",
+        "brief": "Install all carmel modules!",
+        "src": "src/modules/scripts/./install-all-modules.sh"
+    },
+    {
+        "name": "update-modules",
+        "run": "npm run update-modules",
+        "brief": "Update all modules to latest version.",
+        "src": "src/modules/scripts/./update-modules.sh"
+    },
+    {
+        "name": "install-module",
+        "run": "npm run install-module",
+        "params": "",
+        "brief": "Install specific carmel module that you are missing.",
+        "src": "src/modules/scripts/./install-modules.sh"
+    },
+    {
+        "name": "import-mongo",
+        "run": "npm run import-mongo",
+        "brief": "Import mongo-db from carmeldev server. Specify db name, and if to merge or not-\\nIn case you use the merge, the new data WILL NOT override your existing data. \\nIf you won't set it, conflicts will receive incomming data. \\n\\nExample: npm run import-mongo mydatabase merge",
+        "params": "<db-name> [merge]",
+        "src": "src/modules/scripts/./import-mongo.sh"
+    },
+    {
+        "name": "export-mongo",
+        "params": "<db-name> ",
+        "brief": "Export your mongo-db to carmeldev dumps. \\nExample: npm run export-mongo mydatabase",
+        "src": "src/modules/scripts/./export-mongo.sh"
+    },
+    {
+        "name": "generate-config",
+        "run": "npm run generate-config",
+        "brief": "Add config entrys for repositories in config.json and config.production.json.",
+        "src": "src/modules/scripts/./config-generator.sh"
+    },
+    {
+        "name": "run-db-changes",
+        "run": "npm run run-db-changes",
+        "params": "<db-name>",
+        "brief": "Create/Update database on local environment",
+        "src": "src/modules/scripts/./run-db-changes.sh"
+    },
+    {
+        "name": "update-samples-json",
+        "run": "npm run update-samples-json",
+        "brief": "Create/Update sample list json",
+        "src": "src/modules/scripts/./update-samples-json.sh"
+    }
+]

@@ -1,7 +1,6 @@
 {
   "name": "Images",
   "http": {"path": "Images"},
-  "base": "BaseImages",
   "listViewWidget": "ImageGallery",
   "crud": {
     "metaFunctions": {},

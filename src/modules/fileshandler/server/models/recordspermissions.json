@@ -1,0 +1,99 @@
+{
+    "name": "RecordsPermissions",
+    "isPublic": true,
+    "mixins": {
+        "ExcludeModelFields": true
+    },
+    "excludeFields": [
+        "principalId"
+    ],
+    "hidden": [
+        "principalId"
+    ],
+    "crud": {
+        "metaFunctions": {},
+        "fields": {
+            "id": {
+                "type": "Number"
+            },
+            "model": {
+                "type": "String",
+                "editable": "true"
+            },
+            "recordId": {
+                "type": "Number",
+                "editable": "true"
+            },
+            "principalType": {
+                "type": "String",
+                "editable": "true"
+            },
+            "principalId": {
+                "type": "String",
+                "editable": "true"
+            },
+            "permission": {
+                "type": "String",
+                "enum": [
+                    "ALLOW",
+                    "DENY"
+                ]
+            }
+        }
+    },
+    "options": {
+        "idInjection": false,
+        "mysql": {
+            "table": "records_permissions"
+        }
+    },
+    "relations": {},
+    "properties": {
+        "id": {
+            "type": "Number",
+            "required": false,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "id": 1
+        },
+        "model": {
+            "type": "String",
+            "required": false
+        },
+        "recordId": {
+            "type": "Number",
+            "required": false
+        },
+        "principalType": {
+            "type": "String",
+            "required": false
+        },
+        "principalId": {
+            "type": "String",
+            "required": false
+        },
+        "permission": {
+            "type": "String",
+            "enum": [
+                "ALLOW",
+                "DENY"
+            ],
+            "required": true
+        }
+    },
+    "acls": [
+        {
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY",
+            "property": "*"
+        },
+        {
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW",
+            "property": "allowFileAccess"
+        }
+    ]
+}

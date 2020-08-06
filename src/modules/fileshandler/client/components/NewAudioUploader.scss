@@ -1,0 +1,113 @@
+
+// .upload-display {
+//   height: 12vh;
+
+.enable-record {
+  // height: 6vh;
+  // color: #6b6191;
+  // text-align: right;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-evenly;
+  // margin: auto 0;
+  text-align: center;
+
+  .record-audio {
+    background-color: rebeccapurple;
+    border-radius: 25px;
+    color: white;
+    width: 30%;
+    padding: 0.25em;
+
+    div {
+      display: inline;
+      margin: 0.5em;
+    }
+  }
+
+  // height: 100%;
+  // width: 30%;
+  // color: white;
+  // background-color: purple;
+  // border-radius: 25px;
+  // font-size: 3vh;
+
+  // div {
+  //   margin: auto 0;
+  // }
+
+  // }
+
+  // .audio-display {
+  //   height: 20vh;
+
+  #audio-saved-display {
+    height: 14vh;
+    width: 100%;
+
+    .audio-msg {
+      margin: auto;
+      color: grey;
+      border: 1px solid grey;
+      border-radius: 25px;
+      padding: 0.2rem;
+    }
+
+    .rhap_container {
+      min-width: 100%;
+
+      .rhap_main_rhap_stacked {
+        width: 100%;
+      }
+    }
+  }
+  // }
+
+  .custom-file-upload {
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    height: fit-content;
+  }
+
+  .record-modal {
+    position: relative;
+
+    #audio-recorder {
+      width: 100%;
+      height: 100%;
+
+      .no-wave {
+        width: 100%;
+      }
+
+      #timer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+
+      .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .btn-icon {
+          width: 5vh;
+          height: 5vh;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .audio-display {
+    height: 26vh;
+
+    #audio-saved-display {
+      height: 20vh;
+    }
+  }
+}

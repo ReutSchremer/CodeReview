@@ -1,0 +1,104 @@
+{
+    "FILE_TYPE_FILE": "file",
+    "FILE_TYPE_IMAGE": "image",
+    "FILE_TYPE_VIDEO": "video",
+    "FILE_TYPE_AUDIO": "audio",
+    "FILE_TYPES": ["file", "image", "video", "audio"],
+    "FILE_MODEL_NAME": {
+        "file": "Files",
+        "image": "Images",
+        "video": "Video",
+        "audio": "Audio"
+    },
+    "FILE_BASE_MODEL_NAME": {
+        "file": "BaseFiles",
+        "image": "BaseImages",
+        "video": "BaseVideos",
+        "audio": "BaseAudios"
+    },
+    "FILE_MODEL_NAME_IN_RECORDS_PERMISSIONS": {
+        "file": "files",
+        "image": "images",
+        "video": "videos",
+        "audio": "audios"
+    },
+    "FOLDERS": {
+        "file": "files",
+        "image": "imgs",
+        "video": "videos",
+        "audio": "audios"
+    },
+    "FILE_EXTENSIONS": {
+        "file": [
+            "pdf",
+            "doc",
+            "docx"
+        ],
+        "image": [
+            "jpg",
+            "png",
+            "jpeg",
+            "gif",
+            "svg"
+        ],
+        "audio": [
+            "mp3",
+            "m4a",
+            "wav",
+            "mpeg",
+            "webm"
+        ],
+        "video": [
+            "mp4",
+            "ogg",
+            "avi",
+            "webm",
+            "mov"
+        ]
+    },
+    "FILE_MIMES": {
+        "pdf": "application/pdf",
+        "doc": "application/msword",
+        "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "jpg": "image/jpeg",
+        "png": "image/png",
+        "jpeg": "image/jpeg",
+        "gif": "image/gif",
+        "svg": "image/svg+xml",
+        "mp3": [
+            "audio/mp3",
+            "application/octet-stream"
+        ],
+        "m4a": "audio/x-m4a",
+        "wav": [
+            "audio/wav",
+            "audio/x-wav"
+        ],
+        "mpeg": "audio/mpeg",
+        "webm": [
+            "audio/webm",
+            "video/webm"
+        ],
+        "mp4": "video/mp4",
+        "ogg": "video/ogg",
+        "avi": "video/avi",
+        "mov": "video/quicktime"
+    },
+    "IMAGE_SMALL_SIGN": "s",
+    "IMAGE_MEDIUM_SIGN": "m",
+    "IMAGE_LARGE_SIGN": "l",
+    "FILE_ACCEPTED": "accepted",
+    "FILE_REJECTED": "rejected",
+    "DEFAULT_THUMBNAIL": "default-thumbnail",
+    "ERROR_MSG_FILE_TOO_SMALL": "Error: File is smaller than minimum size",
+    "ERROR_MSG_FILE_TOO_BIG": "Error: File exceeds maximum size",
+    "MULTI_FILES_DEFAULT_MSG": "Drag & drop some %s here, or click to select %s",
+    "ERROR_MSG_FILES_NUM_LIMIT": "Cannot upload more than % files",
+    "ERROR_MSG_SOME_FILES": "Error: Some files were rejected",
+    "ROLE": "ROLE",
+    "USER": "USER",
+    "ALLOW": "ALLOW",
+    "AUTHENTICATED": "$authenticated",
+    "NOT_AUTHENTICATED": "$unauthenticated",
+    "EVERYONE": "$everyone"
+}

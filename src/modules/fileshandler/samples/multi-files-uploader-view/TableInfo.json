@@ -1,0 +1,94 @@
+{
+    "thead": [
+        "Property",
+        "Type",
+        "Description",
+        "Default"
+    ],
+    "tbody": [
+        {
+            "Property": "name",
+            "Type": "string",
+            "Description": "Has to be uniqe to each uploader. If the model we are POSTing to has a property with the same name as name: The uploaded file's id reference will be saved there. (Example for value: profileImgId)",
+            "Default": "-"
+        },
+        {
+            "Property": "title",
+            "Type": "string",
+            "Description": "The file's title in database at the relevant model",
+            "Default": "default_title"
+        },
+        {
+            "Property": "description",
+            "Type": "string",
+            "Description": "he file's description in database at therelevant model",
+            "Default": "default_description"
+        },
+        {
+            "Property": "category",
+            "Type": "string",
+            "Description": "File is saved into public/[file-type]s/[category]",
+            "Default": "default_category"
+        },
+        {
+            "Property": "label",
+            "Type": "string",
+            "Description": "Description of what you whant the user will upload",
+            "Default": "Drag & drop some files here, or click to select files"
+        },
+        {
+            "Property": "minSizeInKB",
+            "Type": "int",
+            "Description": "Minimum file's size in KB",
+            "Default": "0"
+        },
+        {
+            "Property": "maxSizeInKB",
+            "Type": "int",
+            "Description": "Maximum file's size in KB",
+            "Default": "5000"
+        },
+        {
+            "Property": "type",
+            "Type": "string",
+            "Description": "The type of the accepted files: image, audio, video, file. Only files of of this type will be accepted, other dropped files will be rejected.",
+            "Default": "image"
+        },
+        {
+            "Property": "noClick",
+            "Type": "boolean",
+            "Description": "If true, the user won't be able to click on the MultiFilesUploader in order to open the files dialog (only dragging files will be possible)",
+            "Default": "false"  
+        },
+        {
+            "Property": "noDrag",
+            "Type": "boolean",
+            "Description": "If true, the user won't be able to drag files to the MultiFilesUploader (only clicking on MultiFilesUploader will be possible)",
+            "Default": "false"  
+        },
+        {
+            "Property": "isMultiSizes",
+            "Type": "boolean",
+            "Description": "Aveliable only when type is images. If true, saves the image in 3 versions: small, medium and large.",
+            "Default": "false"
+        },
+        {
+            "Property": "required",
+            "Type": "boolean",
+            "Description": "Is it required to fill the input or not",
+            "Default": "false"
+        },
+        {
+            "Property": "disabled",
+            "Type": "boolean",
+            "Description": "If it is possible to change the file's input's value",
+            "Default": "false"
+        },
+        {
+            "Property": "onChange",
+            "Type": "function",
+            "Description": "Send onChange method to get the data from the MultiFilesUploader and use it for your uses",
+            "Default": "-"
+        }
+    ]
+}

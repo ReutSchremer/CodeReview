@@ -1,0 +1,48 @@
+.multi-files-uploader-sample {
+  direction: ltr;
+
+  .multi-input-samples {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  p {
+    font-size: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .explanation {
+    text-align: left;
+  }
+
+  em {
+    background-color: lightgray;
+  }
+
+  .multi-input-sample {
+    border: 3px black solid;
+    width: 50%;
+    margin: 2em;
+    margin-top: 1em;
+    padding: 1em;
+  }
+
+  .uploaded-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .figure-container img {
+    max-width: 100%;
+    margin: 2em;
+    margin-top: 1em;
+  }
+
+  button {
+    margin-bottom: 2em;
+  }
+}

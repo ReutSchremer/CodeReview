@@ -1,0 +1,81 @@
+[
+  {
+    "name": "fileshandler",
+    "path": "../src/modules/fileshandler",
+    "routes": "server/routes",
+    "mixins": "server/mixins",
+    "models": "server/models",
+    "autoApplyMixins": [
+      "FilesHandler"
+    ],
+    "github": "https://github.com/carmel-6000/files-handler",
+    "fetch-version": "latest",
+    "current-version": "1.0.0"
+  },
+  {
+    "name": "auth",
+    "path": "../src/modules/auth",
+    "models": "server/models",
+    "github": "https://github.com/carmel-6000/carmel-react-auth",
+    "fetch-version": "latest",
+    "current-version": "1.0.0"
+  },
+  {
+    "name": "scripts",
+    "path": "../src/modules/scripts",
+    "github": "https://github.com/carmel-6000/scripts",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "notifications",
+    "path": "../src/modules/notifications",
+    "github": "https://github.com/carmel-6000/notifications",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "dashboard",
+    "path": "../src/modules/dashboard",
+    "github": "https://github.com/carmel-6000/newdashboard",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "tools",
+    "path": "../src/modules/tools",
+    "github": "https://github.com/carmel-6000/carmel-tools",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "samples",
+    "path": "../src/modules/samples",
+    "github": "https://github.com/carmel-6000/pumbasamples",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "idm",
+    "path": "../src/modules/idm",
+    "routes": "server/routes",
+    "github": "https://github.com/carmel-6000/idm",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  },
+  {
+    "name": "supermodel",
+    "path": "../src/modules/supermodel",
+    "github": "https://github.com/carmel-6000/supermodel",
+    "mixins": "server/mixins",
+    "fetch-version": "latest",
+    "current-version": "1.0.0",
+    "enabled": false
+  }
+]

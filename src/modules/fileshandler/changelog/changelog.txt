@@ -1,0 +1,48 @@
+Instructions for required updated:
+CustomUser.json
+
+* Add this line to properties:
+
+  "properties": {
+
+    "mainImageId":"number"
+
+  }
+
+* Add this to "relations"
+
+"relations":{
+	"mainImage":{
+	        "type":"belongsTo",
+	        "model":"Images",
+	        "foreignKey":"mainImageId"
+	    }
+}
+----------------------------------------------------------------------------
+
+file:/server/server.js
+
+* Add this line:
+require('./../src/modules/fileshandler/server/routes')(app);
+* after the line:
+require('./routes')(app);
+
+* like this:
+var app = module.exports = loopback();
+app.use(express.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../build'));
+require('./routes')(app);
+require('./../src/modules/fileshandler/server/routes')(app);
+
+-------------- SQL ALTERS -------------------------
+
+CREATE TABLE `records_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `model` varchar(100) DEFAULT NULL,
+  `recordId` int(11) unsigned DEFAULT NULL,
+  `principalType` enum('$OWNER','ROLE','USER') DEFAULT NULL,
+  `principalId` varchar(100) DEFAULT NULL,
+  `permission` enum('ALLOW','DENY') DEFAULT 'DENY',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;

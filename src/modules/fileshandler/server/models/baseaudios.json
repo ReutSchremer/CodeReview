@@ -1,0 +1,160 @@
+{
+    "name": "BaseAudios",
+    "isPublic": "false",
+    "mixins": {
+      "FilesHandler": true,
+      "GenerateInstanceTimes": true,
+      "ExcludeModelFields": true
+    },
+    "excludeFields": [
+      "owner"
+    ],
+    "http": {
+        "path": "BaseAudios"
+    },
+    "options": {
+        "idInjection": false,
+        "mysql": {
+            "table": "Audio"
+        },
+        "relations": {}
+    },
+    "properties": {
+        "id": {
+            "type": "Number",
+            "required": false,
+            "generated": true,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "id": 1,
+            "mysql": {
+              "columnName": "id",
+              "dataType": "int",
+              "dataLength": null,
+              "dataPrecision": 10,
+              "dataScale": 0,
+              "nullable": "N"
+            }
+          },
+          "title": {
+            "type": "String",
+            "required": false,
+            "length": 200,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "title",
+              "dataType": "varchar",
+              "dataLength": 200,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "created": {
+            "type": "Date",
+            "required": false,
+            "length": null,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "created",
+              "dataType": "datetime",
+              "dataLength": null,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "modified": {
+            "type": "Date",
+            "required": false,
+            "length": null,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "modified",
+              "dataType": "datetime",
+              "dataLength": null,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "description": {
+            "type": "String",
+            "required": false,
+            "length": 65535,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "description",
+              "dataType": "text",
+              "dataLength": 65535,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "format": {
+            "type": "String",
+            "required": false,
+            "length": 4,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "format",
+              "dataType": "enum",
+              "dataLength": 4,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "category": {
+            "type": "String",
+            "required": false,
+            "length": 100,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+              "columnName": "category",
+              "dataType": "varchar",
+              "dataLength": 100,
+              "dataPrecision": null,
+              "dataScale": null,
+              "nullable": "Y"
+            }
+          },
+          "owner": {
+            "type": "Number",
+            "required": false,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "mysql": {
+              "columnName": "owner",
+              "dataType": "int",
+              "dataLength": null,
+              "dataPrecision": 10,
+              "dataScale": 0,
+              "nullable": "Y"
+            }
+          }
+    },
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+        },
+        {
+            "accessType": "WRITE",
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW"
+        }
+    ]
+}

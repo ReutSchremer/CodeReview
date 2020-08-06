@@ -1,0 +1,247 @@
+
+____________________________________________________________________________________________
+
+                                Files Handler Documentation                                 
+____________________________________________________________________________________________
+
+
+
+
+** Uploading files to the system **
+_______________________________________________________________
+
+
+The files types are: - Images (png, jpg, jpeg, gif, svg)
+					 - Files  (docx, doc, pdf, wav)
+				  	 - Audio  (mp3, webm, wav)
+				  	 - Video  (mp4, webm, ogg, avi)
+
+
+** Note: - The documentation will use "image" as an example to all file types
+         - It will use Games model as an example to models that save files
+
+
+
+1. Uploading the image
+
+import ImageUploader from '...../src/modules/fileshandler/client/components/ImageUploader';
+																			FileUploader
+																			AudioUploader
+																			VideoUploader
+
+<ImageUploader
+    category="string"
+    thumbnail={<img />}
+    defaultValue={<img />}
+    name="string"
+    required={boolean}
+    onChange={function()}
+    label="string"
+    title="sting"
+	description="string"
+    removeFileIcon=<html/> || "string"
+/>
+
+Let's break it down and describe each prop:
+
+._______________._________._______________________________________________________________________.__________._________________.
+| Prop			| Type	  | What it does														  | Required | File types      |
+._______________._________._______________________________________________________________________.__________._________________.
+| category      | string  | the name of the folder the image will be saved in 	    			  | yes		 | All			   |
+| thumbnail     | html    | the image that you will show if user didn't upload any image yet 	  | no		 | Image,Video	   | 
+| defaultValue  | html	  | the default image you will display (ex. previous uploaded image) 	  | no		 | All			   |
+| name          | string  | the name of the column in database where you want to save the image id| yes		 | All			   |
+| required      | boolean | if the uploaded is required or not							 		  | no		 | All			   |
+| onChange      | function| the final event object of the image will be sent to this function	  | yes		 | All			   |
+| label		    | string  | the label that will be displayed with the uploader					  | no		 | All			   |
+| title		    | string  | the title to save in database									 	  | no		 | All			   |
+| description   | string  | the description to save in database									  | no		 | All			   |
+| removeFileIcon| html    | the image that you will show if user didn't upload any image yet 	  | no		 | Image,File,Video|
+._______________._________._______________________________________________________________________.__________._________________.
+
+
+
+2. Saving the image
+
+The onChange function you pass to the uploader as props get an event object (eventObj) as a parameter.
+
+You need to pass that eventObj "as is" to your post method.
+
+We are saving the image inside the save procedure of other models different than "image.js"
+
+The save process takes place into a form for a specific model (e.g: games)
+
+Meaning, you do NOT have to post directly to Images model, but you can post to other models too.
+
+
+
+3. The FilesHandler mixin
+
+There is a mixin that launches everytime any request takes place on the server : mixin/FilesHandler.js
+
+The mixin launches on any request only for specified models.
+
+This mixin's role is to detect if we have inside the data fields any field of type File 
+
+The field type file could be of three diferent types: Audio, Files, Images.
+
+
+	* Setting up a model to launch the FilesHandler mixin: (ex. Games model)
+
+        Games.json
+        {
+            .....
+            "mixins": {
+                "FilesHandler": true
+            },
+            .....
+        }
+	
+
+
+4. FilesHandler detects any of the file types to save according to the eventObj we send it.
+
+Example of a data set: 
+
+We want to save data set into model: Games
+    
+    {
+        gameName: "best game on earth",
+        numOfPlayers: 4,
+        gameImage: {
+            type: "image" (this value is a const!),
+            src: "data:image/png;base64,ADOJSAIFDMKCSMNCIDMCJSM (base 64 content for the image)",
+            category: "animals" (the name of folder where the image is saved- required!),
+            title: "this is the title if exists",
+            description: "this is the description if exists"
+        },
+        anotherImage: {
+            type:"image" (this value is a const!),
+            src:"data:image/jpeg;base64,SDFJSDIFJSDFIJWEIFJEWIF (base 64 content for the image)",
+            category:"people"
+        }
+    }
+
+If the type is "image", the fileHandler saves the image into Images model.
+
+(It saves the other files into the respective models).
+
+
+
+5. What does the saving process include: 
+
+    a. Additional entry will be added to Files/Images models with ownerId (current user id) - this is why we need to pass "options" tp the remote method
+
+    b. The image will be saved into /public/images/CATEGORY/[IMAGE_ID].jpg/png/gif/etc
+
+    c. in the specific model (in our example it is games), only the relation will be saved, e.g: anotherImage:6
+
+    d. Permissions for the owner (current user id) of the image will be set in records_permissions model
+
+
+
+6. Behind the scenes of FilesHandler mixin: (always good to know what's happening)
+
+Before your remote fires the fileshandler beforeRemote('*') launches.
+
+It detects the files according to the types in the eventObj and saves them in a field named "filesToSave".
+
+Then it changes the value of the key holding the object to null. (This is why the field in database should be "default null").
+
+At this point the beforeRemote finishes its job and your method/remote method launches.
+
+Once it is finished, the fileshandler afterRemote('*') launches.
+
+It uses the "filesToSave" to find the file to save.
+
+According to the type if the file it knows in which model to save it.
+
+Now read step 5, points a-d, (it explains what happens next)
+
+If you have a function named "afterFilesHandler" in your model (the one that does the initial post) it will launch now.
+
+This was a small taste of what the FilesHandler mixin does.
+
+
+
+
+** Important things to check if stuff doesn't work :)
+
+    a. The column in database where you save the image id is set to "default null".
+
+    b. If you are using a remote method to save the image, one of its properties is "options"
+
+        ex.
+
+        Games.exampleMethodWithOptions=(gameId, options, cb)=>{
+            const token = options && options.accessToken;
+            const userId = token && token.userId;
+            if (!userId) return cb("AUTHORIZATION_ERROR", null);
+            
+            .....
+        }
+
+        Games.remoteMethod('exampleMethodWithOptions', {
+            http: { verb: 'get', path: '/exampleMethodWithOptions' },
+            accepts: [
+                { "arg": "gameId", "type": "number", "required": true },
+                { "arg": "options", "type": "object", "http": "optionsFromRequest" }
+            ],
+            returns: { arg: 'res', type: 'object', root: true }
+        });
+
+    c. Make sure the method is one of the following: POST, PATCH, PUT. (otherwise the fileshandler won't launch)
+
+       d. Make sure that the name of the column you want to save the image to is not the same as the name (key) of one of the relations
+
+        ex.
+
+        Bad:
+       
+            "relations": {
+                "mainImage": {...}
+            },
+            "properties": {
+                "mainImage": "number",
+                ...
+            }, ...
+
+        Good:
+
+            "relations": {
+                "MainImage": {...}
+            },
+            "properties": {
+                "mainImage": "number",
+                ...
+            }, ...
+
+    e. Read the documentation, you might be missing something...
+   
+       Or come to me (Shira R), I can try help you
+
+
+
+
+** Records permissions **
+_______________________________________________________________
+
+sasa
+
+
+
+_______________________________________________________________
+
+
+
+
+If you realize that something important is missing from here or things are unclear,
+come to me (Shira R) and we will add/fix it.
+
+I hope this was helpful!
+
+Good Luck!!
+
+Shira R
+
+

@@ -1,0 +1,88 @@
+**********HOOKS REPOSITORY**********
+
+Purpose: to use pumba's modules for different platforms (for example: react-native, cordova, web etc.)
+
+
+Because platforms vary, the functionality changes per platform, so we can't have the same function called for every platform. 
+
+Example:
+
+ In Auth module, we want to set cookies after login.  
+ In order to do this, we need to detect the platform we are using.
+ If we are using cordova, for example, we want to do something like this:
+    {
+        this.setItem('klo', res.klo, false, true);
+        this.setItem('kl', res.kl, false, true);
+        this.setItem('kloo', res.kloo, false, true);
+        this.setItem('klk', res.klk, false, true);
+        this.setItem('access_token', res.id);
+    }
+
+but if we are in React Native, we want to do something like this:
+    {
+        await AsyncStorage.setItem('klo', res.klo);
+        await AsyncStorage.setItem('kl', res.kl);
+        await AsyncStorage.setItem('kloo', res.kloo);
+        await AsyncStorage.setItem('klk', res.klk);
+        await AsyncStorage.setItem('access_token', res.id);
+    }
+
+How do we deal with the platforms in a generic way?
+
+The solution:
+
+    Using client-side hooks for our modules.
+    
+    How do we do this?
+
+    First, if the folder "consts" does not exist in the module,
+    we should create this folder.  
+    In this folder, consts, we will create one file (called HooksList_${platform_suffix}) for each platform.
+    Additionally, we'll add a default HooksList file (which will be used if a platform isn't found).
+    
+    In each file, paste the following: 
+    _______________________________________________
+
+    class HooksList {
+
+    constructor(hooksRepository) {
+        this.hooksRepository = hooksRepository;
+    }
+
+    addHooks() {
+        this.hooksRepository.addHook(MODULE_NAME, HOOK_NAME, hookListFunction);
+        // this.hooksRepository.addHook(MODULE_NAME, HOOK_NAME, otherHookListFunction);
+        // (add your own code here if you want)
+
+    }
+
+    hookListFunction(res) {
+        //TODO build your own function
+    }
+
+    }
+
+    export default HooksList;
+ _______________________________________________
+
+
+Each HooksList class must contain the constructor and the addHooks() function as seen above. 
+Feel free to add anything to the constructor or the addHooks() function.
+
+Now, the function that will be called will be from this file.
+
+If you want to add a Hooklist function of your own, all you need to do is:
+  
+    1. in the file where you want to call the customized funciton, type
+       import hooksFactory from "./../src/modules/tools/client/hooks/HooksFactory"  
+  
+    2. in the constructor of said file, type 
+       this.hooksRepository = hooksFactory.getRepository();
+       
+    3. wherever you want (but before login - so preferably in the constructor), type
+       this.hooksRepository.addHook(consts.AUTH, consts.HOOK__AFTER_LOGIN, (x) => { console.log("here is my customized function in action!!", x) });
+
+
+/////////////////////////////////
+PSA: this can be used for other things too - not just platforms.  
+

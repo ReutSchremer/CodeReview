@@ -1,0 +1,26 @@
+{
+    "FILE_SIZE_RANGE_IN_KB": {
+        "file": {
+            "MIN_SIZE": 2,
+            "MAX_SIZE": 500
+        },
+        "image": {
+            "MIN_SIZE": 10,
+            "MAX_SIZE": 5000
+        },
+        "video": {
+            "MIN_SIZE": 100,
+            "MAX_SIZE": 50000
+        },
+        "audio": {
+            "MIN_SIZE": 100,
+            "MAX_SIZE": 50000
+        }
+    },
+    "IMAGE_SIZES_IN_PX": {
+        "s": 200,
+        "m": 800,
+        "l": 1200
+    },
+    "MULTI_FILES_LIMIT": 8
+}

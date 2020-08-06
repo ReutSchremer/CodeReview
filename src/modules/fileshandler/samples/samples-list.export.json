@@ -1,0 +1,38 @@
+[
+    {
+        "filePath": "file-uploader-view/FileUploaderView.js",
+        "componentName": "FileUploaderView",
+        "route": "file-uploader",
+        "title": "File Uploader"
+    },
+    {
+        "filePath": "/image-uploader-view/ImageUploaderView.js",
+        "componentName": "ImageUploaderView",
+        "route": "image-uploader",
+        "title": "Image Uploader"
+    },
+    {
+        "filePath": "/audio-uploader-view/AudioUploaderView.js",
+        "componentName": "AudioUploaderView",
+        "route": "audio-uploader",
+        "title": "Audio Uploader"
+    },
+    {
+		"filePath": "/video-uploader-view/VideoUploaderView.js",
+		"componentName": "VideoUploaderView",
+		"route": "video-uploader",
+		"title": "Video Uploader"
+	},
+    {
+        "filePath": "/multi-files-uploader-view/MultiFilesUploaderView.js",
+        "componentName": "MultiFilesUploaderView",
+        "route": "multi-files-uploader",
+        "title": "Multi Files Uploader"
+    },
+    {
+        "filePath": "/create-game/CreateGame.js",
+        "componentName": "CreateGame",
+        "route": "create-game",
+        "title": "Upload image to relative model (by creating a new game)"
+    }
+]
