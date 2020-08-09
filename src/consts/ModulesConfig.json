@@ -1,0 +1,11 @@
+{
+  "modulesList": [
+    "fileshandler",
+    "dashboard",
+    "auth",
+    "scripts",
+    "tools",
+    "samples"
+  ],
+  "auth": {}
+}

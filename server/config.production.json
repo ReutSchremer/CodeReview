@@ -1,0 +1,44 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 8080,
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "5mb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "5mb"
+    },
+    "cors": false
+  },
+  "cookieSecret": "TopSecretM33ssageVeryOmporanteAndWeTryT0beUnCl3ar",
+  "modules": {
+    "auth": {
+      "access_logger_enabled": "",
+      "block_count_login": "",
+      "block_time_ms_login": "",
+      "check_reset_password_enabled": "",
+      "check_reset_password_after_x_ms": "",
+      "registration_verification_email_text": {
+        "subject": "",
+        "start": "",
+        "click": "",
+        "end": ""
+      },
+      "reset_password_email_text": {
+        "subject": "",
+        "start": "",
+        "click": "",
+        "end": ""
+      }
+    }
+  }
+}
